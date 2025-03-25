@@ -1,0 +1,23 @@
+{
+    "name": "MicroPlus",
+    "icons": {
+        "16": "icon.png",
+        "48": "icon48.png",
+        "128": "icon128.png"
+    },
+    "description": "Unofficial injected addons for microStudio",
+    "version": "0.1.0",
+    "manifest_version": 3,
+    "action": {
+        "default_popup": "popup/index.html"
+    },
+    "content_scripts": [
+        {
+            "matches": ["*://microstudio.io/*", "*://*.microstudio.dev/*"],
+            "js": ["content.js"]
+        }
+    ],
+    "permissions": [
+        "storage"
+    ]
+}

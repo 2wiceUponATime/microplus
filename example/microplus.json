@@ -1,0 +1,6 @@
+{
+    "name": "Example",
+    "description": "An example addon",
+    "version": "1.0.0",
+    "entry": "index.js"
+}

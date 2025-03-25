@@ -1,0 +1,37 @@
+body {
+    width: 400px;
+    height: 250px;
+    font-size: 12pt;
+}
+
+#addon-list {
+    white-space: nowrap;
+    overflow: auto;
+}
+
+.addon {
+    margin-bottom: 10px;
+}
+
+.delete-button {
+    margin-right: 10px;
+}
+
+.addon-icon {
+    vertical-align: middle;
+    image-rendering: pixelated;
+    margin-right: 10px;
+}
+
+.addon-url {
+    color: gray;
+    text-decoration: none;
+}
+
+.addon-url:hover {
+    text-decoration: underline;
+}
+
+.error {
+    color: red;
+}

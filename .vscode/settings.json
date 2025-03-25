@@ -1,0 +1,10 @@
+{
+    "json.schemas": [
+        {
+            "fileMatch": [
+                "microplus.json"
+            ],
+            "url": "./microplus.schema.json"
+        }
+    ]
+}
