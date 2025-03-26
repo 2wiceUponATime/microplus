@@ -4,24 +4,36 @@ async function getAddons() {
         addons = [];
         chrome.storage.sync.set({ addons });
     }
-    for (let base of addons) {
+    for (let base of addons) { 
+        if (!base.endsWith('/')) {
+            base += '/';
+        }
+        const baseURL = new URL(base);
         function getPath(path) {
-            if (!base.endsWith('/')) {
-                base += '/';
-            }
-            if (path.startsWith('/')) {
-                path = path.slice(1);
-            }
-            return base + path;
+            return new URL(path, baseURL).href;
         }
-        const response = await fetch(getPath('/addon.json'));
-        if (!response.ok) {
-            console.error('Failed to fetch addon: ' + base);
-            continue;
+        let error;
+        let response;
+        try {
+            const path = getPath('microplus.json');
+            response = await fetch(path);
+            if (!response.ok) {
+                error = `${path}: HTTP error ${response.status}`;
+            }
+        } catch (err) {
+            error = err;
         }
-        const addon = await response.json();
-        if (typeof addon !== 'object') {
-            console.error('Failed to parse addon: ' + base);
+        let addon = null;
+        if (!error) try {
+            addon = await response.json();
+            if (typeof addon !== 'object') {
+                error = `${path}: invalid JSON type: ${typeof addon}`;
+            }
+        } catch(err) {
+            error = err;
+        }
+        if (error) {
+            console.error(error);
             continue;
         }
         const script = document.createElement('script');
