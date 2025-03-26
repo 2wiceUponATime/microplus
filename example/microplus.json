@@ -1,5 +1,6 @@
 {
     "name": "Example",
+    "icon": "//microstudio.dev/img/favicon.png",
     "description": "An example addon",
     "version": "1.0.0",
     "entry": "index.js"

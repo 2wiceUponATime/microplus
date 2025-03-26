@@ -5,7 +5,7 @@
         "48": "icon48.png",
         "128": "icon128.png"
     },
-    "description": "Unofficial injected addons for microStudio",
+    "description": "Unofficial addons for microStudio",
     "version": "0.1.0",
     "manifest_version": 3,
     "action": {

@@ -1,19 +1,17 @@
 const addonList = document.getElementById('addon-list');
 
 async function loadAddon(index, base) {
+    if (!base.endsWith('/')) {
+        base += '/';
+    }
+    const baseURL = new URL(base);
     function getPath(path) {
-        if (!base.endsWith('/')) {
-            base += '/';
-        }
-        if (path.startsWith('/')) {
-            path = path.slice(1);
-        }
-        return base + path;
+        return new URL(path, baseURL).href;
     }
     let error;
     let response;
     try {
-        const path = getPath('/microplus.json');
+        const path = getPath('microplus.json');
         response = await fetch(path);
         if (!response.ok) {
             error = `${path}: HTTP error ${response.status}`;
