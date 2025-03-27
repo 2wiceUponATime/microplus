@@ -13,7 +13,7 @@ To install this extension on Chrome and Chromium-based browsers:
 
 ## Example Addon
 
-To test the example addon, run server.py in the cloned repository. Then, open the extension popup and add the URL http://localhost:8000/example. Currently, all it does is log "Hello from an addon!" to the console.
+To test the example addon, run [server.py](https://github.com/2wiceUponATime/microplus/blob/main/server.py) in the cloned repository. Then, open the extension popup and add the URL http://localhost:8000/example. Currently, all it does is log "Hello from an addon!" to the console.
 
 ## Creating Addons
 
